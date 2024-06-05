@@ -8,4 +8,4 @@ from .models import Item
 def detail(request, pk):
     Item = get_object_or_404(Item, pk)
 
-    return render(request, 'core/details.html', {'item': Item})
+    return render(request, 'item/details.html', {'item': Item})
