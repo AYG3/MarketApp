@@ -6,6 +6,6 @@ from .models import Item
 
 # Create your views here.
 def detail(request, pk):
-    Item = get_object_or_404(Item, pk)
+    item = get_object_or_404(Item, pk=pk )
 
-    return render(request, 'item/details.html', {'item': Item})
+    return render(request, 'item/details.html', {'item':item})
