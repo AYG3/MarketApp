@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="contaner bg-teal-400">
+        <form method='POST' action='.'>
+            <label>Username</label>
+            {{form.username}}
+
+            <label>Password</label>
+            {{form.password}}
+        </form>
+    </div>
