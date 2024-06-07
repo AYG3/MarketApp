@@ -23,8 +23,3 @@ def signup(request):
         form = SignupForm()
 
     return render(request, 'core/signup.html', {'form':form })
-
-def login(request):
-    login_form = LoginForm
-
-    return render(request, 'core/login.html', {'login': login_form})
