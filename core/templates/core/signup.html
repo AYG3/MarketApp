@@ -11,7 +11,6 @@ Sign up
         {% csrf_token %}
 
         {% comment %} {{ form.as_p}} #display the form as paragraph {% endcomment %}
-        {{form.non_field_errors}}
 
         <div class="mb-4">
             <label for="username" class="inline-block mb-2">Username</label><br>
