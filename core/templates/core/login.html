@@ -1,12 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'core/base.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
     <div class="contaner bg-teal-400">
         <form method='POST' action='.'>
             <label>Username</label>
-            {{form.username}}
+            {{Login.username}}
 
             <label>Password</label>
-            {{form.password}}
+            {{Login.password}}
         </form>
     </div>
+
+{% endblock content%}
