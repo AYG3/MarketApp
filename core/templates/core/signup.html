@@ -12,11 +12,26 @@ Sign up
 
         {% comment %} {{ form.as_p}} #display the form as paragraph {% endcomment %}
         {{form.non_field_errors}}
-        
-        <div class="mb-4">
-            <label for="username" class="inline-block mb-2">Username</label>
-            <input type="text" name="username" id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 
+        <div class="mb-4">
+            <label for="username" class="inline-block mb-2">Username</label><br>
+            {{form.username}}
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="inline-block mb-2">Email</label><br>
+            {{form.email}}
+        </div>
+
+        <div class="mb-4">
+            <label for="password" class="inline-block mb-2">Password</label><br>
+            {{form.password1}}
+        </div>
+
+        <div class="mb-4">
+            <label for="password2" class="inline-block mb-2">Repeat Password</label><br>
+            {{form.password2}}
+        </div>
         <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 text-white rounded-xl" >Sign up</button>
     </form>
 </div>
