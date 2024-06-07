@@ -3,9 +3,15 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm #
 from django.contrib.auth.models import User # imports database model for user
 
 class LoginForm(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password')
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Your username',
+        'class': 'py-4 px-6 rounded-xl w-full',
+    }))
+
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder': 'Your password',
+        'class': 'py-4 px-6 rounded-xl w-full',
+    }))
 
 class SignupForm(UserCreationForm):
     class Meta:
