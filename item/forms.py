@@ -12,5 +12,17 @@ class NewItemForm(forms.ModelForm):
         widgets ={
             'category': forms.Select(attrs={
                 'class': INPUT_CLASSES
-            })    
+            }),    
+            'name': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),    
+            'description': forms.Textarea(attrs={
+                'class': INPUT_CLASSES
+            }),    
+            'price': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),    
+            'image': forms.FileInput(attrs={
+                'class': INPUT_CLASSES
+            }),    
         } 
