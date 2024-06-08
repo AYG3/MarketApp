@@ -17,6 +17,12 @@ def detail(request, pk):
 
 @login_required #Ensures user is login, else redirects user to login page
 def new(request):
+    if request.method == 'POST':
+        form = NewItemForm(request.POST, request.FILES) #request.FILES enables us to get the Files(images in this case) from the form
+
+        if form.is_valid():
+            item = form.save(commit=False) #we dont save immediately 
+
     form = NewItemForm()
 
     return render(request, 'item/form.html', {'form': form, 'title': 'New Item' })

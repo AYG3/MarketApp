@@ -3,7 +3,7 @@ from .models import Item
 
 #To add items
 
-INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl border'
+INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl border border-teal-700'
 class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
