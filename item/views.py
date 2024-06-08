@@ -8,6 +8,12 @@ from .forms import NewItemForm, EditItemForm
 # https://youtu.be/ZxMB6Njs3ck?t=2762
 
 # Create your views here.
+def items(request): #for the search or browse function
+    items = Item.objects.filter(is_sold=False)
+
+    return render(request, 'item/browse.html', {'items': items})
+
+
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=item.pk)
