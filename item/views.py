@@ -19,4 +19,4 @@ def detail(request, pk):
 def new(request):
     form = NewItemForm()
 
-    return render(request, 'item/new.html', {'form': form })
+    return render(request, 'core/form1.html', {'form': form })
