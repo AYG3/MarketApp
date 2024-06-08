@@ -24,8 +24,8 @@
             {%if request.user == item.created_by %}
                 <div class='bg-white mt-6 p-6 rounded-xl'>
                     <p> This is your item</p>
-                    <a href='{% url 'item:delete' item.id %}' class='inline-block mt-12 px-6 py-3 text-md bg-teal-500 rounded-xl text-white-500 hover:bg-teal-700'>Edit</a>
-                    <a href='{% url 'item:delete' item.id %}' class='inline-block mt-12 px-6 py-3 text-md bg-teal-500 rounded-xl text-white-500 hover:bg-teal-700'> Delete</a>
+                    <a href='#' class='inline-block mt-12 px-6 py-3 text-md bg-teal-500 rounded-xl text-white-500 hover:bg-teal-700'>Edit</a>
+                    <a href='{% url 'item:delete' item.id %}' class='inline-block mt-12 px-6 py-3 text-md bg-teal-700 rounded-xl text-white-500 hover:bg-teal-700'> Delete</a>
                 </div>
             {% else %}
                 <a href='#' class='inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 rounded-xl text-white hover:bg-teal-700 '> Contact Seller </a>
