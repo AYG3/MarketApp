@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+
+{%  block title%}{{ title }}{% endblock %}
+
+{% block content %}
+<h1 class='mb-4 text-3xl'>{{title}}</h1>
+
+    <form action='.' method='POST' enctype='multipart/form-data'> {% comment %} The enctype=multipart/form-data is needed to upload images {% endcomment %}
+      {% csrf_token %} 
+
+      {% comment %} <div class='space-y-4'>
+        {{form.as_p }}
+      </div>
+
+      {%  if form.errors or form.non_field_errors %}
+        
+          <div class="mb-3 p-6 bg-red-100 rounded-xl">    
+              {% for field in form %}
+                  {{field.errors}}
+              {% endfor %}
+          </div>
+
+      {% endif %}
+      
+      <button  class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 text-white rounded-xl" >Sign up</button> {% endcomment %}
+      <div class='mb-4' >
+        <label> Category </label><br>
+        {{form.category}}
+      </div>
+
+      <div class='mb-4' >
+        <label> Name </label><br>
+        {{form.name}}
+      </div>
+
+      <div class='mb-4' >
+        <label> Description </label><br>
+        {{form.description}}
+      </div>
+
+      <div class='mb-4' >
+        <label> Price </label><br>
+        {{form.price}}
+      </div>
+
+      <div class='mb-4' >
+        <label> image </label><br>
+        {{form.image}}
+      </div> 
+
+    </form>
+</div>
+{% endblock %}
