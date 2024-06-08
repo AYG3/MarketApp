@@ -12,5 +12,5 @@ urlpatterns = [
     path('<int:pk>/', views.detail, name='detail'),
     path('<int:pk>/delete/', views.detail, name='delete'),
     path('<int:pk>/edit/', views.edit, name='edit'),
-    path('browse/', views.items, name='browse'),
+    path('', views.items, name='browse'),
 ]
