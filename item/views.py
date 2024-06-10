@@ -12,7 +12,7 @@ def items(request): #for the search or browse function
     query = request.GET.get('query', '') #https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
     items = Item.objects.filter(is_sold=False)
 
-    return render(request, 'item/browse.html', {'items': items})
+    return render(request, 'item/browse.html', {'items': items, 'query': query})
 
 
 def detail(request, pk):
