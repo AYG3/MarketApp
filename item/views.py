@@ -19,7 +19,7 @@ def items(request):
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query)) 
 
-    return render(request, 'item/browse.html', {'items': items, 'query': query, 'categories': categories, 'categroy_id': int(category_id)} )
+    return render(request, 'item/browse.html', {'items': items, 'query': query, 'categories': categories, 'category_id': int(category_id)} )
 
 
 def detail(request, pk):
