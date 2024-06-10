@@ -12,6 +12,9 @@ def items(request): #for the search or browse function
     query = request.GET.get('query', '') #https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
     items = Item.objects.filter(is_sold=False)
 
+    if query:
+        items = items.filter(name_icontains=query) #searches case insenstively the i in i contains means - (case) Insensitve
+
     return render(request, 'item/browse.html', {'items': items, 'query': query})
 
 
