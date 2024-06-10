@@ -15,8 +15,8 @@ def items(request):
     items = Item.objects.filter(is_sold=False)
 
     if query:
-        # items = items.filter(Q(name_icontains=query) | Q(description_icontains=query)) 
-        items = items.filter(name__icontains=query) 
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query)) 
+        # items = items.filter(name__icontains=query) 
 
     return render(request, 'item/browse.html', {'items': items, 'query': query})
 
