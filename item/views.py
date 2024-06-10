@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect # type: ignore
-from .models import Item
+from .models import Item, Category
 
 from .forms import NewItemForm, EditItemForm
 
@@ -12,12 +12,13 @@ from .forms import NewItemForm, EditItemForm
 # Query - https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
 def items(request): 
     query = request.GET.get('query', '') 
+    categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query)) 
 
-    return render(request, 'item/browse.html', {'items': items, 'query': query})
+    return render(request, 'item/browse.html', {'items': items, 'query': query, 'categories': categories})
 
 
 def detail(request, pk):

@@ -6,12 +6,15 @@
     <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
         <div class='col-span-1 border mr-6'>
             <h1 class='text-lg p-2 font-semibold'> Search </h1>
-            <form method='GET' action='{% url 'item:browse'}'> 
+            <form method='GET' action='{% url 'item:browse' %}'> 
                 <input name='query' class='w-full py-4 px-6 border rounded-xl' type="text" value='{{ query }}' placeholder='Find a bike, chair or car'>
                 
                 <button class='mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl'> Search </button>
             </form>
-
+            <hr class='my-6'>
+            <ul>
+                
+            </ul>
         </div>
 
         <div class='col-span-3'>
