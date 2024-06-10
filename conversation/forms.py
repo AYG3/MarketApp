@@ -1,5 +1,14 @@
 from django import forms
 
+from item.models  import Item
 from .models import ConversationMessage
 
-class form
+class form(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = ('content',)
+        widgets = {
+            'content': forms.Textarea(attrs={
+                'class': ''
+            })
+        }
