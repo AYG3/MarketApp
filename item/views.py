@@ -10,15 +10,16 @@ from .forms import NewItemForm, EditItemForm
 # Create your views here.
 
 # Query - https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
-def items(request): 
-    query = request.GET.get('query', '') 
+def items(request):
+    query = request.GET.get('query', '')
+    category_id = request.GET.get('category_id', 0)
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query)) 
 
-    return render(request, 'item/browse.html', {'items': items, 'query': query, 'categories': categories})
+    return render(request, 'item/browse.html', {'items': items, 'query': query, 'categories': categories, 'categroy_id': category_id} )
 
 
 def detail(request, pk):

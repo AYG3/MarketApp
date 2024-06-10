@@ -16,7 +16,7 @@
 
             <ul class='p-4'>
                 {% for category in categories %}
-                    <li class='p-2 rounded-xl {% if category.id == category_id %} bg-gray-200' >
+                    <li class='p-2 rounded-xl {% if category.id == category_id %} bg-gray-200 {% endif %}' >
                         <a href="{% url 'item:browse' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
                     </li>
                 {% endfor %}
