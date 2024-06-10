@@ -11,9 +11,14 @@
                 
                 <button class='mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl'> Search </button>
             </form>
+
             <hr class='my-6'>
-            <ul>
+
+            <ul class='p-4'>
                 {% for category in categories %}
+                    <li class='p-2 rounded-xl'>
+                        <a href='{% url 'item:browse' %}?query={{ query }}&category={{ category.id }}'
+                    </li>
                 {% endfor %}
             </ul>
         </div>
