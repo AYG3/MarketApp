@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect # type: ignore
 from .models import Item
 
@@ -12,8 +12,8 @@ def items(request): #for the search or browse function
     query = request.GET.get('query', '') #https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
     items = Item.objects.filter(is_sold=False)
 
-    if query:
-        items = items.filter(name_icontains=query) #searches case insenstively the i in i contains means - (case) Insensitve
+    # if query:
+    #     items = items.filter(Q(name_icontains=query) | Q(description_icontains=query)) #searches case insenstively the i in i contains means - (case) Insensitve
 
     return render(request, 'item/browse.html', {'items': items, 'query': query})
 
