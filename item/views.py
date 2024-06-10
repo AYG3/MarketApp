@@ -8,12 +8,15 @@ from .forms import NewItemForm, EditItemForm
 # https://youtu.be/ZxMB6Njs3ck?t=2762
 
 # Create your views here.
-def items(request): #for the search or browse function
-    query = request.GET.get('query', '') #https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
+
+# Query - https://youtu.be/ZxMB6Njs3ck?t=6370 - Backend for the equery function
+def items(request): 
+    query = request.GET.get('query', '') 
     items = Item.objects.filter(is_sold=False)
 
-    # if query:
-    #     items = items.filter(Q(name_icontains=query) | Q(description_icontains=query)) #searches case insenstively the i in i contains means - (case) Insensitve
+    if query:
+        # items = items.filter(Q(name_icontains=query) | Q(description_icontains=query)) 
+        items = items.filter(name__icontains=query) 
 
     return render(request, 'item/browse.html', {'items': items, 'query': query})
 
