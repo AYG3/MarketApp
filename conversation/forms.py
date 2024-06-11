@@ -2,7 +2,7 @@ from django import forms
 
 from .models import ConversationMessage
 
-class form(forms.ModelForm):
+class ConversationMessageForm(forms.ModelForm):
     class Meta:
         model = ConversationMessage
         fields = ('content',)
