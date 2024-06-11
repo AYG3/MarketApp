@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from item.models import Item
+from .forms import ConversationMessageForm
 from .models import Conversation, ConversationMessage
 
 # Communication app is for users to send messages to owners of products
@@ -14,5 +15,8 @@ def new_conversation(request, item_pk):
     
     conversations = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
 
-    if request.method == 'POST': #https://youtu.be/ZxMB6Njs3ck?t=7461
-        form = ConversationMessageFor
+    if conversations: #to check if there has been previous conversation between the customer and the seller
+        pass #redirect to conversation
+
+    if request.method == 'POST': #https://youtu.be/ZxMB6Njs3ck?t=7461 - User 
+        form = ConversationMessageForm(request.POST)
