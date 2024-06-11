@@ -9,6 +9,6 @@ class form(forms.ModelForm):
         fields = ('content',)
         widgets = {
             'content': forms.Textarea(attrs={
-                'class': ''
+                'class': 'w-full py-4 px-6 rounded-xl border'
             })
         }
