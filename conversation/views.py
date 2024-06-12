@@ -43,4 +43,4 @@ def new_conversation(request, item_pk):
 def inbox(request):
     conversations = Conversation.objects.filter(members__in=[request.user.id])
 
-    return render(request, 'conversation/inbox.html')
+    return render(request, 'conversation/inbox.html', {'conversations': conversations})
