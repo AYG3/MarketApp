@@ -28,7 +28,7 @@
                     <a href='{% url 'item:delete' item.id %}' class='inline-block mt-12 px-6 py-3 text-md bg-teal-700 rounded-xl text-white-500 hover:bg-teal-700'> Delete</a>
                 </div>
             {% else %}
-                <a href='{% url 'conversations:new' item.pk%}' class='inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 rounded-xl text-white hover:bg-teal-700 '> Contact Seller </a>
+                <a href='{% url 'conversations:new' item.id %}' class='inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 rounded-xl text-white hover:bg-teal-700 '> Contact Seller </a>
             {% endif %}
 
 
