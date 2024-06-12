@@ -16,13 +16,13 @@ def new_conversation(request, item_pk):
     conversations = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
 
     if conversations: #to check if there has been previous conversation between the customer and the seller
-        pass #redirect to conversation
+        return redirect('core:base') #redirect to conversation
 
     if request.method == 'POST': #https://youtu.be/ZxMB6Njs3ck?t=7461 - User 
         form = ConversationMessageForm(request.POST)
         
         if form.is_valid():
-            conversation = Conversation.objects.create() #- To create the conversation - (imagine CONVERSATION like a group but only for two people)
+            conversation = Conversation.objects.create(item=item) #- To create the conversation - (imagine CONVERSATION like a group but only for two people)
             conversation.members.add(request.user) #ading user to the conversation
             conversation.members.add(item.created_by) #addding seller to the conversation
             conversation.save()
@@ -31,7 +31,7 @@ def new_conversation(request, item_pk):
             conversation_message.conversation = conversation #establishes relationship with the conversation instance from earlier
             conversation_message.created_by = request.user
             conversation_message.save()
-            
+
             return redirect('item:detail', pk=item_pk)
     else:
         form = ConversationMessageForm()
