@@ -17,7 +17,7 @@ def new_conversation(request, item_pk):
     conversations = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
 
     if conversations: 
-        pass
+        return redirect('conversations:detail', pk=conversations.first().id)
 
     if request.method == 'POST': #https://youtu.be/ZxMB6Njs3ck?t=7461 - User 
         form = ConversationMessageForm(request.POST)
