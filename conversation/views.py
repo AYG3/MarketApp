@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from item.models import Item
 from .forms import ConversationMessageForm
-from .models import Conversation, ConversationMessage
+from .models import Conversation
 
 # Communication app is for users to send messages to owners of products
 
